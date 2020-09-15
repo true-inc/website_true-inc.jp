@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700');
+
+html {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	line-height: 1.4;
+	font-family: Roboto, "Noto Sans JP", sans-serif;
+	color: #000;
+	background: #fff;
+}
+a {
+	color: #000;
+	text-decoration: none;
+}
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	height: 60px;
+}
+#menu {
+	margin: 0;
+	padding: 0;
+}
+#menu li {
+	display: inline-block;
+	margin: 20px;
+	color: #000;
+	font-weight: 700;
+	text-transform: capitalize;
+	letter-spacing: 0.05em;
+}
+#menu li.active {
+	color: #000;
+}
+#menu li a {
+	color: #000;
+	text-decoration: none;
+}
+#menu li a:hover {
+	border-bottom: 2px solid #000;
+}
+#menu li.active a:hover {
+	color: #000;
+	border-bottom: none;
+}
+#menu li a,
+#menu li.active a {
+	margin: 0;
+	padding: 0 0 6px 0;
+	display: block;
+}
+#menu li.active a {
+	border-bottom: 2px solid #000;
+}
+#overlay {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
+.section {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+h1 {
+	display: inline-block;
+	margin: 0 0 30px 0;
+	padding: 0;
+	border-bottom: 4px solid #000;
+	font-size: 64px;
+	font-weight: 700;
+	line-height: 1.4;
+	letter-spacing: 0.05em;
+}
+h1 span {
+	font-size: 42px;
+}
+h2,
+h3 {
+	display: inline-block;
+	margin: 0 0 30px 0;
+	padding: 0;
+	border-bottom: 4px solid #000;
+	font-size: 60px;
+	font-weight: 700;
+	line-height: 1.4;
+	letter-spacing: 0.05em;
+}
+
+
+
+p {
+	font-size: 20px;
+	line-height: 2.0;
+}
+.catch {
+	font-size: 26px;
+	font-family: 'Source Code Pro', monospace;
+	font-weight: 400;
+}
+.mail {
+	font-size: 24px;
+}
+.mail a {
+	padding: 0 0 6px 0;
+}
+.mail a:hover {
+	border-bottom: 2px solid #000;
+}
+dl {
+	display: block;
+	width: 600px;
+	margin: 20px auto;
+	padding: 0;
+	font-size: 16px;
+}
+dl dt {
+	float: left;
+	width: 160px;
+	line-height: 2.4;
+	text-align: left;
+	font-weight: bold;
+}
+dl dd {
+	text-align: left;
+	line-height: 2.4;
+}
+#map {
+	width: 100%;
+	height: 400px;
+	margin: 30px 0;
+}
+footer {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 200;
+	width: 100%;
+	margin: 0;
+	padding: 20px;
+	text-align: right;
+}
+small {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+@media screen and (max-width: 768px) {
+	#menu {
+		display: none;
+	}
+	#toggle,
+	#toggle span {
+		display: inline-block;
+		transition: all .4s;
+		box-sizing: border-box;
+	}
+	#toggle {
+		position: fixed;
+		top: 10px;
+		left: 10px;
+		width: 40px;
+		height: 40px;
+		z-index: 9999;
+	}
+	a#toggle:hover {
+		/*background: rgba(0, 0, 0, 0.5);*/
+	}
+	#toggle span {
+		position: absolute;
+		z-index: 9999;
+		left: 5px;
+		width: 75%;
+		height: 2px;
+		background-color: #000;
+	}
+	#toggle span:nth-of-type(1) {
+		top: 10px;
+	}
+	#toggle span:nth-of-type(2) {
+		top: 19px;
+	}
+	#toggle span:nth-of-type(3) {
+		bottom: 10px;
+	}
+	#toggle.active span {
+		background-color: #fff;
+	}
+	#toggle.active span:nth-of-type(1) {
+		-webkit-transform: translateY(9px) rotate(-45deg);
+		transform: translateY(9px) rotate(-45deg);
+	}
+	#toggle.active span:nth-of-type(2) {
+		opacity: 0;
+	}
+	#toggle.active span:nth-of-type(3) {
+		-webkit-transform: translateY(-9px) rotate(45deg);
+		transform: translateY(-9px) rotate(45deg);
+	}
+	#overlay {
+		display: none;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		z-index: 1000;
+		background: rgba(0, 0, 0, 1.0);
+		box-sizing: border-box;
+		text-align: center;
+	}
+	#sm-menu {
+		width: 100%;
+		height: 100%;
+		margin: 80px 0 0 0;
+		padding: 0;
+	}
+	#sm-menu li {
+		margin: 0 0 40px 0;
+		padding: 0;
+		list-style-type: none;
+		text-transform: capitalize;
+		font-size: 20px;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+	}
+	#sm-menu li a {
+		color: #fff;
+		text-decoration: none;
+	}
+	.section br {
+		display: none;
+	}
+	h1 {
+		margin: 0 0 20px 0;
+		border-bottom: 3px solid #000;
+		font-size: 30px;
+		line-height: 1.5;
+	}
+	h1 span {
+		font-size: 20px;
+	}
+	h2,
+	h3 {
+		margin: 0 0 20px 0;
+		border-bottom: 3px solid #000;
+		font-size: 26px;
+		line-height: 1.5;
+	}
+	p {
+		padding: 0 40px;
+		font-size: 14px;
+		line-height: 1.6;
+	}
+	.catch {
+		font-size: 18px;
+	}
+	.mail {
+		font-size: 16px;
+	}
+	.mail a {
+		padding: 0 0 4px 0;
+	}
+	.mail a:hover {
+		border-bottom: none;
+	}
+	dl {
+		display: inline;
+		width: auto;
+		margin: 0 auto;
+		padding: 0;
+		font-size: 12px;
+	}
+	dl dt {
+		float: none;
+		width: auto;
+		margin: 0;
+		padding: 0;
+		line-height: 1.8;
+		text-align: center;
+	}
+	dl dd {
+		margin: 0 0 8px 0;
+		padding: 0;
+		text-align: center;
+		line-height: 1.8;
+	}
+	#map {
+		width: 100%;
+		height: 300px;
+		margin: 10px 0;
+	}
+	footer {
+		padding: 15px;
+	}
+	small {
+		font-size: 12px;
+		font-weight: 400;
+	}
+}

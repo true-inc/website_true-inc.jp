@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>TRUE Inc.</title>
+<meta name="author" content="TRUE Inc.">
+<meta name="keywords" content="TRUE,TRUE株式会社">
+<meta name="description" content="return true value;">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+
+<!--[if lt IE 9]>
+<script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+	<header>
+		<!-- PCメニュー -->
+		<ul id="menu">
+			<li data-menuanchor="top" class="active"><a href="#top">top</a></li>
+			<li data-menuanchor="service"><a href="#service">service</a></li>
+			<li data-menuanchor="company"><a href="#company">company</a></li>
+			<li data-menuanchor="access"><a href="#access">access</a></li>
+			<li data-menuanchor="contact"><a href="#contact">contact</a></li>
+		</ul>
+		<!-- ハンバーガーボタン -->
+		<a id="toggle" href="#">
+			<span></span>
+			<span></span>
+			<span></span>
+		</a>
+		<!-- SMメニュー -->
+		<nav id="overlay">
+			<ul id="sm-menu">
+				<li><a href="#top">top</a></li>
+				<li><a href="#service">service</a></li>
+				<li><a href="#company">company</a></li>
+				<li><a href="#access">access</a></li>
+				<li><a href="#contact">contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div id="fullpage">
+		<div class="section">
+			<h1>TRUE</h1>
+			<p class="catch">return true value;</p>
+		</div>
+		<div class="section">
+			<h2>Service</h2>
+			<p>Eコマースやwebサービスのプラットフォームとして<br>真に価値のあるサービスを提供します。</p>
+		</div>
+		<div class="section">
+			<h2>Company</h2>
+			<dl>
+				<dt>社名</dt>
+				<dd>ＴＲＵＥ株式会社</dd>
+				<dt>所在地</dt>
+				<dd>〒108-0074 東京都港区高輪2-14-17 グレイス高輪ビル8F</dd>
+				<dt>設立年月日</dt>
+				<dd>2017年9月1日</dd>
+				<dt>資本金</dt>
+				<dd>5,000,000円</dd>
+				<dt>決算月</dt>
+				<dd>8月</dd>
+				<dt>代表取締役</dt>
+				<dd>津久井 明</dd>
+				<dt>取引銀行</dt>
+				<dd>三菱東京UFJ銀行 神田駅前支店</dd>
+			</dl>
+		</div>
+		<div class="section">
+			<h2>Access</h2>
+			<div id="map"></div>
+		</div>
+		<div class="section">
+			<h1>Contact</h1>
+			<p class="mail"><a href="mailto:&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#116;&#114;&#117;&#101;&#45;&#105;&#110;&#99;&#46;&#106;&#112;">&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#116;&#114;&#117;&#101;&#45;&#105;&#110;&#99;&#46;&#106;&#112;</a></p>
+		</div>
+	</div>
+	<footer>
+		<small>&copy; 2017 TRUE Inc.</small>
+	</footer>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGNStQ_OCHXohZGtNfVOBXaSxbqDF_g24"></script>
+	<script>
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				anchors: ['top', 'service', 'company', 'access', 'contact'],
+				menu: '#menu',
+				navigation: true,
+				sectionsColor: ['#fff', '#fff', '#fff', '#fff', '#fff']
+			});
+		});
+	</script>
+	<script>
+		jQuery(document).ready(function($) {
+			// 地図表示用メソッド
+			function map_initialize() {
+				// 地図の座標を設定
+				var latlng = new google.maps.LatLng(35.635484, 139.738255);
+				// 地図の設定
+				var map = new google.maps.Map(
+					document.getElementById("map"), {
+						zoom: 16, // 地図の拡大率
+						center: latlng, // 地図の中心座標
+						scrollwheel: false // マウスホイールでの拡縮を禁止
+					}
+				);
+				// マーカー画像の設定
+				var markerImg = {
+					url: './img/pin.png'
+				};
+				// マーカーの設定
+				var marker = new google.maps.Marker({
+					position: latlng,
+					map: map,
+					icon: markerImg,
+				});
+				// 地図のスタイルにグレースケール設定を追加
+				var mapStyle = [{
+					"stylers": [{
+						"saturation": -100
+					}]
+				}];
+				var mapType = new google.maps.StyledMapType(mapStyle);
+				map.mapTypes.set('GrayScaleMap', mapType);
+				map.setMapTypeId('GrayScaleMap');
+			}
+			// 地図表示用メソッドの呼び出し
+			map_initialize();
+		});
+	</script>
+	<script>
+		$(function() {
+			$('#toggle').on('click', function() {
+				$(this).toggleClass('active');
+				$("#overlay").fadeToggle();
+				return false;
+			});
+			$('nav a').on('click', function(){
+				$('#toggle').click();
+			});
+		});
+	</script>
+</body>
+</html>
