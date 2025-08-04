@@ -9,7 +9,7 @@
 <meta name="description" content="return true value;">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/normalize.css">
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/main.css?v=20250804">
 <link rel="stylesheet" href="css/jquery.fullPage.css">
 
 <!--[if lt IE 9]>
@@ -60,7 +60,7 @@
 				<dt>社名</dt>
 				<dd>ＴＲＵＥ株式会社</dd>
 				<dt>所在地</dt>
-				<dd>〒108-0074 東京都港区高輪2-14-17 グレイス高輪ビル8F</dd>
+				<dd>〒101-0041 東京都千代田区神田須田町1-34-3 D2SM 8F</dd>
 				<dt>設立年月日</dt>
 				<dd>2017年9月1日</dd>
 				<dt>資本金</dt>
@@ -75,7 +75,9 @@
 		</div>
 		<div class="section">
 			<h2>Access</h2>
-			<div id="map"></div>
+			<div id="map">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2204.6880726170652!2d139.76991370851312!3d35.69408604142158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d004bf1ef1f%3A0xe62f2705c00d276c!2sD2SM!5e0!3m2!1sja!2sjp!4v1754290441576!5m2!1sja!2sjp" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
 		</div>
 		<div class="section">
 			<h1>Contact</h1>
@@ -83,12 +85,11 @@
 		</div>
 	</div>
 	<footer>
-		<small>&copy; 2023 TRUE Inc.</small>
+		<small>&copy; 2025 TRUE Inc.</small>
 	</footer>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGNStQ_OCHXohZGtNfVOBXaSxbqDF_g24"></script>
 	<script>
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
@@ -97,44 +98,6 @@
 				navigation: true,
 				sectionsColor: ['#fff', '#fff', '#fff', '#fff', '#fff']
 			});
-		});
-	</script>
-	<script>
-		jQuery(document).ready(function($) {
-			// 地図表示用メソッド
-			function map_initialize() {
-				// 地図の座標を設定
-				var latlng = new google.maps.LatLng(35.635484, 139.738255);
-				// 地図の設定
-				var map = new google.maps.Map(
-					document.getElementById("map"), {
-						zoom: 16, // 地図の拡大率
-						center: latlng, // 地図の中心座標
-						scrollwheel: false // マウスホイールでの拡縮を禁止
-					}
-				);
-				// マーカー画像の設定
-				var markerImg = {
-					url: './img/pin.png'
-				};
-				// マーカーの設定
-				var marker = new google.maps.Marker({
-					position: latlng,
-					map: map,
-					icon: markerImg,
-				});
-				// 地図のスタイルにグレースケール設定を追加
-				var mapStyle = [{
-					"stylers": [{
-						"saturation": -100
-					}]
-				}];
-				var mapType = new google.maps.StyledMapType(mapStyle);
-				map.mapTypes.set('GrayScaleMap', mapType);
-				map.setMapTypeId('GrayScaleMap');
-			}
-			// 地図表示用メソッドの呼び出し
-			map_initialize();
 		});
 	</script>
 	<script>
